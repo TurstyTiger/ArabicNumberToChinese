@@ -322,6 +322,7 @@ public class ArabicToChineseTryThree {
        * passing it as an index to SpecialUnit[] array.
       */
       int charToInt = inputString.charAt(i) - 48;
+      //but somehow I think the name of the variable might not be very good.(charToInt)
       /*
        * Clearly seen from its name,this is right the corresponding index in the unit string of the current
        * digit.Since we've already got its length,we could exactly know the corresponding unit of each digit.
