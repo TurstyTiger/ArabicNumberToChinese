@@ -191,21 +191,21 @@ public class ArabicToChineseTryThree {
       if(decimalPart.charAt(i) == '0') {
         numOfConcecutiveZero++;
         /*
-         * If all of the digits are 0,we still need to add "zheng" to decimalResult.
+         * If all of the digits are 0,we still need to add "整" to decimalResult.
          *
          * To increase the useage of our code,we use another method to help us deal with the integer part,
          * and we just need to deal with the decimal part here.And in the end,we connect them toghther as our
          * final result.That's convenient and easy to do,but convenience comes with its price.
          *
-         * There's always be a "yuanzheng" at the end of the convertion.Since we are going to use the replace()
+         * There's always be a "元整" at the end of the convertion.Since we are going to use the replace()
          * method of the StringBuilder,and we're going to use our converted decimal part to replace the
-         * "zheng" at the end.What if all of the digits in the decimal part is 0?The number should be an
-         * integer in Chinese,so the last unit should still be "yuanzheng".That means under this case,the
-         * "zheng" at the end should not be replaced.
+         * "整" at the end.What if all of the digits in the decimal part is 0?The number should be an
+         * integer in Chinese,so the last unit should still be "元整".That means under this case,the
+         * "整" at the end should not be replaced.
          *
-         * So wether or not the "zheng" should be replaced depends on wether the decimal part is all of 0 or not.
-         * Actually,we always use the replace() method,but change the content.If it's all 0,we replace "zheng" at
-         * the end with "zheng",so it seems that it hasn't been replaced,but it's actually not.
+         * So wether or not the "整" should be replaced depends on wether the decimal part is all of 0 or not.
+         * Actually,we always use the replace() method,but change the content.If it's all 0,we replace "整" at
+         * the end with "整",so it seems that it hasn't been replaced,but it's actually not.
         */
         if(numOfConcecutiveZero == decimalPart.length()) {
           decimalResult.append("整");
@@ -257,9 +257,9 @@ public class ArabicToChineseTryThree {
    * its corresponding unit to the result.</p>
    *
    * <p>When it comes to zero,thing's got a little bit complicated.If no concecutive zeros occur,
-   * that means numOfConcecutiveZero=1,we just skip the zero and add the special unit "ling".If
+   * that means numOfConcecutiveZero=1,we just skip the zero and add the special unit "零".If
    * numOfConncecutiveZero greater than 1,that means we have multiple concecutive zeros,usually we just skip them
-   * all and add the special unit "ling".But the unit "yi","wan","yuanzheng" should always be added
+   * all and add the special unit "零".But the unit "亿","万","元整" should always be added
    * wether it's zero or not.</p>
    *
    * @param inputString this is the string representation of the number to which the method is to deal with
@@ -277,13 +277,13 @@ public class ArabicToChineseTryThree {
      * restrict the length of the number that the user can input.
      *
      * As we can see,Chinese way of spelling numbers is strongly connected with the length of the number.
-     * And the last digit always gets the lowest position in the unit system:"yuanzheng",because that's
+     * And the last digit always gets the lowest position in the unit system:"元整",because that's
      * where the unit hierarchy starts from.
      *
      * So do we!We should also start from the last digit,and that's how the very first version of the
      * program really implement.It's perfect to work with a non-zero senario,but once we encounter a zero
      * it sucks!It's really hard to deal with zeros,especially concecutive zeros.And the crucial part is
-     * wether we should add "ling" or add its corresponding unit or just skip to the next digit.Since
+     * wether we should add "零" or add its corresponding unit or just skip to the next digit.Since
      * Chinese way of spelling numbers is from the highest position to the lowest,so now we have the
      * following improved version:
      *
@@ -330,7 +330,7 @@ public class ArabicToChineseTryThree {
           numOfConcecutiveZero=0;
         }
         /*
-         * Since we're now dealing with integers we should always add "yuanzheg" at the end of the result.
+         * Since we're now dealing with integers we should always add "元整" at the end of the result.
         */
         if (correspondingIndex == 0) {
           result.append(UnitsOfInteger[correspondingIndex]);
