@@ -340,12 +340,12 @@ public class ArabicToChineseTryThree {
             continue;
           }
           /*
-           * Usually,the unit "yi" and "wan" should always be added wether its corresponding digit is 0 or not.
+           * Usually,the unit "亿" and "wan" should always be added wether its corresponding digit is 0 or not.
            * Special condition has been considered above.
           */
           result.append(UnitsOfInteger[correspondingIndex]);
           /*
-           * After adding the unit "yi",we should set the variable numOfConcecutiveZero to 0,because all the
+           * After adding the unit "亿",we should set the variable numOfConcecutiveZero to 0,because all the
            * digits have already been processed,no need to store its information anymore,so we should refresh it
            * and set it to 0.
            */
