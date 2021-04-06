@@ -295,6 +295,28 @@ public class ArabicToChineseTryThree {
     int length = inputString.length();
 
     for(int i=0;i<length;i++) {
+        /*
+       * I know that the inputString is the string representation of the input number that's going to be converted
+       * into Chinese,so inputString.charAt(i) is just a single digit in the number.Since the return type
+       * of the method charAt() is char,thanks to java type promotion mechanism,we can get an int result.
+       *
+       * Rules:
+       * all byte,shor,char values are promoted to int;
+       * if one operand is a long,the whole expression is promoted to long;
+       * if one operand is a float,the entire expression is promoted to float;
+       * if any of the operands are double,the result is double;
+       *
+       * System.out.println("Hello!" + 'a' + 7); output Hello!a7
+       * System.out.println('a' + 7 + "Hello!"); output 104Hello!
+       * If the type of either operand of a + operator is String, then the operation is string concatenation.
+       * The + operator is syntactically left-associative, no matter whether it is determined
+       * by type analysis to represent string concatenation or numeric addition
+       *
+       * Why is 48 to be subtracted?
+       * The ASCII values of '0'~'9' is from 48~57,subtract 48 which is of type int,we will get a result
+       * 0~9 of type int,just what we need to 'translate' a single Arabic digit into Chinese Character by
+       * passing it as an index to SpecialUnit[] array.
+      */
       int charToInt = inputString.charAt(i) - 48;
       /*
        * Clearly seen from its name,this is right the corresponding index in the unit string of the current
