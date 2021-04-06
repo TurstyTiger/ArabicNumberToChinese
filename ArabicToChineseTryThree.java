@@ -190,7 +190,7 @@ public class ArabicToChineseTryThree {
        * I think explicit cast is unnecessary here,because java has a type promotion mechanism
        * and the decimalPart.charAt(i)(which is of type char) will be promoted to int.
       */
-      int charToInt = (int) decimalPart.charAt(i) - 48;
+      int charToInt =  decimalPart.charAt(i) - 48;
       int correspondingIndex = i;
       if(decimalPart.charAt(i) == '0') {
         numOfConcecutiveZero++;
